@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="RestaurantManager.UniversalWindows.ExpeditePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RestaurantManager.UniversalWindows"
+    xmlns:models="using:RestaurantManager.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <models:ExpediteDataManager />
+    </Page.DataContext>
+    <Page.TopAppBar>
+        <AppBar>
+            <AppBarButton Label="Home" Click="MainPage_Click">
+                <AppBarButton.Icon>
+                    <SymbolIcon Symbol="Home" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </AppBar>
+    </Page.TopAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.85*"/>
+            <RowDefinition Height="0.10*"/>
+        </Grid.RowDefinitions>
+        <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
+        </GridView>
+        <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+    </Grid>
+</Page>
