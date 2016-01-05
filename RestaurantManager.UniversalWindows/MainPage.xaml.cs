@@ -7,17 +7,17 @@ namespace RestaurantManager.UniversalWindows
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private void ExpeditePage_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ExpeditePage));
+            Frame.Navigate(typeof(ExpeditePage));
         }
 
         private void OrderPage_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(OrderPage));
+            Frame.Navigate(typeof(OrderPage));
         }
     }
 }

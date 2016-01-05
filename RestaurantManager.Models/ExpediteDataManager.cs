@@ -4,14 +4,21 @@ namespace RestaurantManager.Models
 {
     public class ExpediteDataManager : DataManager
     {
-        protected override void OnDataLoaded()
-        {
-
-        }
+        private List<Order> _orderItems;
 
         public List<Order> OrderItems
         {
-            get { return base.Repository.Orders; }
+            get { return _orderItems; }
+            set
+            {
+                _orderItems = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected override void OnDataLoaded()
+        {
+            OrderItems = Repository.Orders;
         }
     }
 }
