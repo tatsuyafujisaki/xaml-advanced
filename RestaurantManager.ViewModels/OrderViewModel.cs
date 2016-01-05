@@ -1,9 +1,9 @@
-﻿using RestaurantManager.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Windows.UI.Popups;
+using RestaurantManager.Models;
 
 namespace RestaurantManager.ViewModels
 {
@@ -27,7 +27,7 @@ namespace RestaurantManager.ViewModels
         public List<MenuItem> MenuItems
         {
             get { return _menuItems; }
-            set
+            private set
             {
                 _menuItems = value;
                 NotifyPropertyChanged();
@@ -49,12 +49,12 @@ namespace RestaurantManager.ViewModels
             MenuItems = Repository.StandardMenuItems;
         }
 
-        public void AddMenuItem()
+        private void AddMenuItem()
         {
             CurrentlySelectedMenuItems.Add(SelectedMenuItem);
         }
 
-        public async void SubmitOrder()
+        private async void SubmitOrder()
         {
             Repository.Orders.Add(
                 new Order

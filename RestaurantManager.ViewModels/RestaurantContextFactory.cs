@@ -1,5 +1,5 @@
-﻿using RestaurantManager.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using RestaurantManager.Models;
 
 namespace RestaurantManager.ViewModels
 {

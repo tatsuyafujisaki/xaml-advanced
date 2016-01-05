@@ -6,24 +6,39 @@ namespace RestaurantManager.ViewModels
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {
-        protected RestaurantContext Repository { get; private set; }
+        private bool _isLoading;
 
         protected ViewModel()
         {
             LoadData();
         }
 
+        protected RestaurantContext Repository { get; private set; }
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+
+            private set
+            {
+                _isLoading = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private async void LoadData()
         {
-            this.Repository = await RestaurantContextFactory.GetRestaurantContextAsync();
+            IsLoading = true;
+            Repository = await RestaurantContextFactory.GetRestaurantContextAsync();
             OnDataLoaded();
+            IsLoading = false;
         }
 
         protected abstract void OnDataLoaded();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged([CallerMemberName]string propertyName = null)
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

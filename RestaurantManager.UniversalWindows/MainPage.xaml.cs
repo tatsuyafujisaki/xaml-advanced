@@ -19,5 +19,10 @@ namespace RestaurantManager.UniversalWindows
         {
             Frame.Navigate(typeof(OrderPage));
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ButtonSlider.Begin();
+        }
     }
 }

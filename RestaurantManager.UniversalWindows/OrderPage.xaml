@@ -32,6 +32,11 @@
             <RowDefinition Height="0.10*" />
             <RowDefinition Height="0.10*" />
         </Grid.RowDefinitions>
+        <ProgressRing Grid.ColumnSpan="3"
+                      Grid.RowSpan="6"
+                      IsActive="{Binding IsLoading}"
+                      Height="300"
+                      Width="300" />
         <TextBlock Grid.Row="2"
                    Grid.Column="1"
                    Text="Special Requests:" />

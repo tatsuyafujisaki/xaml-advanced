@@ -25,6 +25,10 @@
             <RowDefinition Height="0.85*" />
             <RowDefinition Height="0.10*" />
         </Grid.RowDefinitions>
+        <ProgressRing Grid.RowSpan="3"
+                      IsActive="{Binding IsLoading}"
+                      Height="300"
+                      Width="300" />
         <GridView Grid.Row="1"
                   ItemsSource="{Binding OrderItems}">
             <GridView.ItemTemplate>

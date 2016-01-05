@@ -5,19 +5,41 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:i="using:Microsoft.Xaml.Interactivity"
       xmlns:extensions="using:RestaurantManager.Extensions"
-      mc:Ignorable="d">
+      mc:Ignorable="d"
+      Loaded="Page_Loaded">
     <Page.Resources>
-        <ControlTemplate x:Key="ButtonTemplate"
-                         TargetType="Button">
-            <Border CornerRadius="10"
-                    Padding="5"
-                    Background="#33FFFFFF">
+        <ControlTemplate TargetType="Button"
+                         x:Key="RoundButton">
+            <Border Background="{TemplateBinding Background}"
+                    CornerRadius="25"
+                    Padding="10,5">
                 <ContentPresenter />
             </Border>
         </ControlTemplate>
+        <Storyboard x:Name="ButtonSlider">
+            <DoubleAnimation Storyboard.TargetName="ExpediteButton"
+                             Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.X)"
+                             From="-250"
+                             To="0"
+                             Duration="0:0:2">
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase EasingMode="EaseOut"  />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="OrderButton"
+                             Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.X)"
+                             From="250"
+                             To="0"
+                             Duration="0:0:2">
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
     </Page.Resources>
     <i:Interaction.Behaviors>
-        <extensions:RightClickMessageDialogBehavior Title="Credits" Message="Thanks to the team who developed this"/>
+        <extensions:RightClickMessageDialogBehavior Title="Credits"
+                                                    Message="Thanks to the team who developed this" />
     </i:Interaction.Behaviors>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -43,19 +65,31 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    Style="{StaticResource SubheaderTextBlockStyle}" />
-        <Button Content="Go to Orders View"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Grid.Row="2"
-                Grid.Column="0"
-                Click="ExpeditePage_Click"
-                Template="{StaticResource ButtonTemplate}" />
-        <Button Content="Submit Order"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Grid.Row="2"
-                Grid.Column="1"
-                Click="OrderPage_Click"
-                Template="{StaticResource ButtonTemplate}" />
+        <Button  Name="ExpediteButton"
+                 Content="Go to Orders View"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Grid.Row="2"
+                 Grid.Column="0"
+                 Click="ExpeditePage_Click"
+                 Template="{StaticResource RoundButton}">
+            <Button.RenderTransform>
+                <TranslateTransform X="0"
+                                    Y="0" />
+            </Button.RenderTransform>
+        </Button>
+        <Button  Name="OrderButton"
+                 Content="Submit Order"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Click="OrderPage_Click"
+                 Template="{StaticResource RoundButton}">
+            <Button.RenderTransform>
+                <TranslateTransform X="0"
+                                    Y="0" />
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Page>

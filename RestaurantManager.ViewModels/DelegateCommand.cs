@@ -13,7 +13,7 @@ namespace RestaurantManager.ViewModels
             : this(execute, () => true)
         { }
 
-        public DelegateCommand(Action execute, Func<bool> canExecute)
+        private DelegateCommand(Action execute, Func<bool> canExecute)
         {
             if (execute == null)
             {
