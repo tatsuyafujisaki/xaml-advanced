@@ -18,7 +18,7 @@ namespace RestaurantManager.Extensions
             if (associatedObject is Page)
             {
                 AssociatedObject = associatedObject;
-                (AssociatedObject as Page).RightTapped += Page_RightTapped;
+                ((Page)AssociatedObject).RightTapped += Page_RightTapped;
             }
         }
 
