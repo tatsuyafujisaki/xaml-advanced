@@ -9,11 +9,7 @@ namespace RestaurantManager.Models
         public List<Order> OrderItems
         {
             get { return _orderItems; }
-            set
-            {
-                _orderItems = value;
-                OnPropertyChanged();
-            }
+            set { SetProperty(ref _orderItems, value); }
         }
 
         protected override void OnDataLoaded()

@@ -9,28 +9,14 @@ namespace RestaurantManager.Models
 
         public List<MenuItem> MenuItems
         {
-            get
-            {
-                return _menuItems;
-            }
-            set
-            {
-                _menuItems = value;
-                OnPropertyChanged();
-            }
+            get { return _menuItems; }
+            set { SetProperty(ref _menuItems, value); }
         }
 
         public List<MenuItem> CurrentlySelectedMenuItems
         {
-            get
-            {
-                return _currentlySelectedMenuItems;
-            }
-            set
-            {
-                _currentlySelectedMenuItems = value;
-                OnPropertyChanged();
-            }
+            get { return _currentlySelectedMenuItems; }
+            set { SetProperty(ref _currentlySelectedMenuItems, value); }
         }
 
         protected override void OnDataLoaded()
