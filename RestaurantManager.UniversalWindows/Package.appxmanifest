@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="da504085-789a-4d8f-a5b2-d97d22b73dfe" Publisher="CN=Sidne" Version="1.0.0.0" />
+  <Identity Name="da504085-789a-4d8f-a5b2-d97d22b73dfe" Publisher="CN=Tatsuya" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="da504085-789a-4d8f-a5b2-d97d22b73dfe" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>RestaurantManager.UniversalWindows</DisplayName>
